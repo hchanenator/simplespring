@@ -4,23 +4,24 @@
 package org.herb.simplespring.example;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+import org.herb.simplespring.example.api.FileDataReader;
+import org.herb.simplespring.example.api.IReader;
 
 /**
  * @author herb
  *
  */
-public class VanillaDataReaderClient {
+public class DataReaderClient {
 	
-	private VanillaFileReader fileReader = null;	
+	private IReader fileReader = null;	
 	private String fileName = "c:/temp/somedata.txt";
 	
 	/**
 	 * 
 	 */
-	public VanillaDataReaderClient() {
+	public DataReaderClient() {
 		try {
-			fileReader = new VanillaFileReader(fileName);
+			fileReader = new FileDataReader(fileName);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Exception: " + e.getMessage());
@@ -36,7 +37,7 @@ public class VanillaDataReaderClient {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		VanillaDataReaderClient client = new VanillaDataReaderClient();
+		DataReaderClient client = new DataReaderClient();
 		System.out.println("Got data using no spring: " + client.fetchData());
 	}
 
