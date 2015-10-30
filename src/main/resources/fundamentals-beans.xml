@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="person" class="org.herb.simplespring.example.model.Person">
+		<constructor-arg value="Han" />
+		<constructor-arg value="Solo" />
+		<property name="age" value="76" />
+		<property name="address" ref="address" />
+	</bean>
+
+	<bean name="address" class="org.herb.simplespring.example.model.Address">
+		<property name="doorNumber" value="99" />
+		<property name="firstLine" value="Rainbow Vistas" />
+		<property name="secondLine" value="Kukatpally, Hyderabad" />
+		<property name="zipCode" value="101010" />
+	</bean>
+
+</beans>
