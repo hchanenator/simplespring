@@ -6,6 +6,8 @@ package org.herb.simplespring.example;
 import java.io.FileNotFoundException;
 import org.herb.simplespring.example.api.FileDataReader;
 import org.herb.simplespring.example.api.IReader;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author herb
@@ -13,23 +15,19 @@ import org.herb.simplespring.example.api.IReader;
  */
 public class DataReaderClient {
 	
-	private IReader fileReader = null;	
-	private String fileName = "c:/temp/somedata.txt";
+	private IReader reader = null;	
+	private ApplicationContext ctx = null;
 	
 	/**
 	 * 
 	 */
 	public DataReaderClient() {
-		try {
-			fileReader = new FileDataReader(fileName);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Exception: " + e.getMessage());
-		}
+		ctx = new ClassPathXmlApplicationContext("basic-reader-beans.xml");
 	}
 	
 	private String fetchData() {
-	    return fileReader.read();
+	    reader = (IReader) ctx.getBean("reader");
+	    return reader.read();
 	}
 
 
