@@ -6,10 +6,11 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:annotation-config />
+	<context:component-scan base-package="org.herb.simplespring.example" />
 
-	<bean name="reservationService"
+	<!-- <bean name="reservationService"
 		class="org.herb.simplespring.example.service.ReservationService" />
 	<bean name="reservationManager" class="org.herb.simplespring.example.ReservationManager" />
-	<bean name="reservationReader" class="org.herb.simplespring.example.api.ReservationReader" />
+	<bean name="reservationReader" class="org.herb.simplespring.example.api.ReservationReader" /> -->
 
 </beans>

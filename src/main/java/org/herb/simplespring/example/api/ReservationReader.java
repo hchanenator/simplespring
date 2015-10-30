@@ -4,11 +4,13 @@
 package org.herb.simplespring.example.api;
 
 import org.herb.simplespring.example.model.Reservation;
+import org.springframework.stereotype.Component;
 
 /**
  * @author herb
  *
  */
+@Component
 public class ReservationReader implements IReservationReader {
 
 	/* Fake it until you make it!
