@@ -7,4 +7,9 @@
 	<bean name="reader" class="org.herb.simplespring.example.api.FileDataReader">
 		<constructor-arg value="c:/temp/somedata.txt" />
 	</bean>
+
+	<bean name="readerService"
+		class="org.herb.simplespring.example.service.FileDataReaderService">
+		<constructor-arg ref="reader" />
+	</bean>
 </beans>

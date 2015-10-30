@@ -6,6 +6,7 @@ package org.herb.simplespring.example;
 import java.io.FileNotFoundException;
 import org.herb.simplespring.example.api.FileDataReader;
 import org.herb.simplespring.example.api.IReader;
+import org.herb.simplespring.example.service.IReaderService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,7 +16,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class DataReaderClient {
 	
-	private IReader reader = null;	
+	private IReaderService reader = null;
 	private ApplicationContext ctx = null;
 	
 	/**
@@ -23,11 +24,12 @@ public class DataReaderClient {
 	 */
 	public DataReaderClient() {
 		ctx = new ClassPathXmlApplicationContext("basic-reader-beans.xml");
+		reader = (IReaderService) ctx.getBean("readerService");
 	}
 	
 	private String fetchData() {
-	    reader = (IReader) ctx.getBean("reader");
-	    return reader.read();
+	    
+	    return reader.fetchData();
 	}
 
 
